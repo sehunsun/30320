@@ -34,3 +34,6 @@ function setGameOver() {
         guessField.disabled = true; //停止輸入功能
         guessSubmit.disabled = true;    //停止按鈕功能
 }
+const guesses = document.querySelector(".guesses");
+
+guesses.textContent += userGuess + " ";  

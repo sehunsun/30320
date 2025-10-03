@@ -9,16 +9,17 @@ let z = x + y;
 
 // How to Output values:
 console.log(z);
-alert('hello world');
+alert('嘿嘿見鬼啦!');
 //建立自訂函式
 
 function hello(){      
-    alert('hello world');
+    alert('嘿嘿見鬼啦!');
 }
 function hello2(name){  
     let n = prompt("請輸入暱稱");
-    alert('hello, '+name+'你的暱稱是'+n);
+    alert('憲憲說'+name+'很高興認識你'+n);
 }
+
 function sum(x,y){
     let s = x + y;
     return s;
@@ -34,15 +35,15 @@ x = 20;
 y = "block";
 
 btn1.addEventListener("click",function(){  //監聽事件，點擊，執行函式
-    document.getElementById("demo1").innerHTML = "Hello JavaScript";
+    document.getElementById("demo1").innerHTML = "宗憲舔舔";
 })
 btn2.addEventListener("click",function(){  //監聽事件，點擊，執行函式
 x = x + 10;
 document.getElementById("demo2").style.fontSize=x + "px";
 })
 btn3.addEventListener("click",function(){  //監聽事件，點擊，執行函式
-    alert("沒事");
-    this.innerText = "沒事";
+    alert("把你媽吊在這宮殿裏頭旋轉");
+    this.innerText = "把你媽吊在這宮殿裏頭旋轉";
     this.style.color = "red";
 })
 btn4.addEventListener("click",function(){  //監聽事件，點擊，執行函式
