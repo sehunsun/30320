@@ -1,24 +1,56 @@
-<head>
-    <meta charset="utf-8">
-    <script src="draw.js" defer></script>
-</head>
-<body>
-    <canvas id="canvas" width='800' height='800'></canvas>
-</body>
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
 <title>Canvas 畫圖工具</title>
+
 <style>
-  body { text-align: center; font-family: sans-serif; }
-  canvas { border: 1px solid #000; cursor: crosshair; }
+  body { 
+    text-align: center; 
+    font-family: sans-serif; 
+    margin: 0;
+  }
+
+  /* 導覽列 */
+  .topnav {
+    background: #333;
+    padding: 10px;
+  }
+
+  .topnav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .topnav a.active {
+    color: yellow;
+    border-bottom: 2px solid yellow;
+  }
+
+  canvas { 
+    border: 1px solid #000; 
+    cursor: crosshair; 
+    margin-top: 10px;
+  }
+
   .toolbar { margin: 10px; }
   button { margin: 0 5px; }
 </style>
 </head>
+
 <body>
+
+<!-- ✅ 導覽列一定要在 body 裡面 -->
+<div class="topnav">
+    <a href="30320.html">Home</a>
+    <a class="active" href="draw.html">畫布</a>
+    <a href="guess.html">猜數字遊戲</a>
+    <a href="index.html">班級留言板</a>
+    <a href="snake.html">貪食蛇</a>
+    <a href="test.html">憲羅天征</a>
+</div>
 
 <h2>🎨 Canvas 畫圖工具</h2>
 
@@ -27,8 +59,7 @@
   <input type="color" id="color" value="#000000">
   線條粗細：
   <input type="range" id="lineWidth" min="1" max="30" value="5">
-  <span id="value">5</span> px　
-  
+  <span id="value">5</span> px
   <button id="eraser">🩹 橡皮擦</button>
   <button id="clear">🧹 清除畫布</button>
   <button id="download">💾 下載圖片</button>
@@ -37,14 +68,13 @@
 <canvas id="canvas" width="800" height="500"></canvas>
 
 <script>
+/* 你原本的 JS 全部照用 */
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+let drawing = false;
+let queue = [];
+let erasing = false;
 
-let drawing = false;   // 是否正在畫
-let queue = [];        // 暫存上一個座標
-let erasing = false;   // 是否啟用橡皮擦
-
-// 畫線函式
 function drawLine(ctx, x1, y1, x2, y2) {
     ctx.beginPath();
     ctx.moveTo(x1, y1);
@@ -53,33 +83,29 @@ function drawLine(ctx, x1, y1, x2, y2) {
     ctx.closePath();
 }
 
-// 滑鼠按下開始畫
 canvas.addEventListener('mousedown', function(e) {
     drawing = true;
-    const x = e.pageX - canvas.offsetLeft;
-    const y = e.pageY - canvas.offsetTop;
+    const x = e.offsetX;
+    const y = e.offsetY;
     drawLine(ctx, x, y, x, y);
     queue.push([x, y]);
 });
 
-// 滑鼠移動畫線
 canvas.addEventListener('mousemove', function(e) {
     if (drawing) {
         const old = queue.shift();
-        const x = e.pageX - canvas.offsetLeft;
-        const y = e.pageY - canvas.offsetTop;
+        const x = e.offsetX;
+        const y = e.offsetY;
         drawLine(ctx, old[0], old[1], x, y);
         queue.push([x, y]);
     }
 });
 
-// 放開滑鼠結束畫圖
 canvas.addEventListener('mouseup', function() {
     drawing = false;
     queue = [];
 });
 
-// 顏色與粗細控制
 const color = document.getElementById("color");
 const lineWidth = document.getElementById("lineWidth");
 const value = document.getElementById("value");
@@ -90,7 +116,7 @@ ctx.lineWidth = lineWidth.value;
 
 color.addEventListener("input", (e) => {
     ctx.strokeStyle = e.target.value;
-    erasing = false; // 切換顏色即回到畫筆模式
+    erasing = false;
 }); 
 
 lineWidth.addEventListener("input", (e) => {
@@ -98,12 +124,11 @@ lineWidth.addEventListener("input", (e) => {
     ctx.lineWidth = e.target.value;
 });
 
-// 🩹 橡皮擦功能
 const eraserBtn = document.getElementById("eraser");
 eraserBtn.addEventListener("click", () => {
     erasing = !erasing;
     if (erasing) {
-        ctx.strokeStyle = "#FFFFFF"; // 背景色
+        ctx.strokeStyle = "#FFFFFF";
         eraserBtn.textContent = "✏️ 回到畫筆";
     } else {
         ctx.strokeStyle = color.value;
@@ -111,13 +136,11 @@ eraserBtn.addEventListener("click", () => {
     }
 });
 
-// 🧹 清除畫布
 const clearBtn = document.getElementById("clear");
 clearBtn.addEventListener("click", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
-// 💾 下載圖片
 const downloadBtn = document.getElementById("download");
 downloadBtn.addEventListener("click", () => {
     const link = document.createElement('a');

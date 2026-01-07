@@ -2,18 +2,98 @@
 <html lang="zh-Hant-TW">
 <head>
     <meta charset="UTF-8">
-    <title>一個標題</title>
+    <title>猜數字遊戲</title>
 
+    <style>
+        body {
+            margin: 0;
+            padding-top: 70px; /* 給固定導覽列空間 */
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1f4037, #99f2c8);
+            min-height: 100vh;
+        }
+
+        /* ===== 導覽列 ===== */
+        .topnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #222;
+            padding: 12px 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+        }
+
+        .topnav a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .topnav a:hover {
+            color: #00ffd5;
+        }
+
+        .topnav a.active {
+            color: #ffd700;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 4px;
+        }
+
+        /* ===== 遊戲卡片 ===== */
+        .game-box {
+            background: rgba(255,255,255,0.9);
+            display: inline-block;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            color: #333;
+        }
+
+        input, button {
+            padding: 8px 12px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-    <div>
-    <h1>猜數字遊戲</h1>
-    <label for="guessField">猜一個數字 (1 到 100):</label>
-    <input type="number" class="guessField" id="guessField" min="1" max="100">
+
+<!-- ✅ 固定導覽列 -->
+<div class="topnav">
+    <a href="30320.html">Home</a>
+    <a href="draw.html">畫布</a>
+    <a class="active" href="guess.html">猜數字遊戲</a>
+    <a href="index.html">班級留言板</a>
+    <a href="snake.html">貪食蛇</a>
+    <a href="test.html">憲羅天征</a>
+</div>
+
+<!-- ✅ 遊戲內容 -->
+<div class="game-box">
+    <h1>🎯 猜數字遊戲</h1>
+
+    <label for="guessField">猜一個數字 (1 到 100):</label><br>
+    <input type="number" id="guessField" min="1" max="100">
+    <br>
     <button class="guessSubmit">提交</button>
+
     <div class="result"></div>
     <div class="count"></div>
-  </div>
+</div>
+
 <p class="guesses"></p>
+
+<!-- ⚠ 如果你原本有 JS，記得接回來 -->
+<!-- <script src="guess.js"></script> -->
+
 </body>
 </html>

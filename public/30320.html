@@ -1,43 +1,156 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-<html>
-<meta name="description" content="玩遊戲時可以聽的歌">
 <head>
-    <link href="piyan.css" rel="stylesheet" media="all">
+    <meta charset="utf-8">
+    <meta name="description" content="玩遊戲時可以聽的歌">
+    <title>我最近聽的歌</title>
 
-    <meta charset="utf=8">
-    <title>song</title>
+    <style>
+        body {
+            margin: 0;
+            padding-top: 70px; /* 給固定導覽列空間 */
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            color: white;
+            text-align: center;
+        }
+
+        /* ===== 導覽列 ===== */
+        .topnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.6);
+            padding: 15px;
+            z-index: 1000;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        .topnav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .topnav a:hover {
+            color: #ffd369;
+        }
+
+        .topnav a.active {
+            color: #ffd700;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 4px;
+        }
+
+        h1 {
+            margin: 30px 0;
+            font-size: 2.5em;
+        }
+
+        /* ===== 歌曲卡片 ===== */
+        .song-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 20px 40px 60px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .song-card {
+            background: rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .song-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .song-card h2 {
+            margin: 10px 0 5px;
+        }
+
+        .song-card h3 {
+            margin: 0 0 10px;
+            font-weight: normal;
+            color: #ffd369;
+        }
+
+        iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 12px;
+        }
+
+        /* ===== 底部GIF ===== */
+        #top {
+            margin-bottom: 30px;
+        }
+
+        #top img {
+            width: 180px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+    </style>
 </head>
+
 <body>
-    
+
+<!-- ✅ 固定導覽列 -->
 <div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+    <a class="active" href="30320.html">Home</a>
+    <a href="draw.html">畫布</a>
+    <a href="guess.html">猜數字遊戲</a>
+    <a href="index.html">班級留言板</a>
+    <a href="snake.html">貪食蛇</a>
+    <a href="test.html">憲羅天征</a>
 </div>
-    <h1>我最近聽的歌</h1>
-    <h2>第一首</h2>
-    <h3>COM MEDO! (Super Slowed)
-</h3>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/aaLADvBZaxA?si=Nx6iA4y3h7T7nf48" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <h2>第二首</h2>
-    <h3>MONTAGEM XONADA
-</h3>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/JjPtDl6EJ3o?si=8Awqe1GenYJHxqL7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <h2>第三首</h2>
-    <h3>LOS VOLTAJE (Slowed)
-</h3>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/NvEKBcEa4uM?si=XvlKZzhezaX8kjOp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <h2>第四首</h2>
-        <h3>DIA DELÍCIA
-</h3>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/FS6Ari46kpw?si=bg1PGNIUBuhv4bCU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <h2>第五首</h2>
-    <h3>LUNA BALA (Slowed)
-</h3>
-<iframe width="300" height="300" src="https://www.youtube.com/embed/7MSQDYX4mr8?si=0uVMeftGZVbISLyB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></body>    
+
+<h1>🎧 我最近聽的歌</h1>
+
+<div class="song-list">
+    <div class="song-card">
+        <h2>第一首</h2>
+        <h3>COM MEDO! (Super Slowed)</h3>
+        <iframe src="https://www.youtube.com/embed/aaLADvBZaxA" allowfullscreen></iframe>
+    </div>
+
+    <div class="song-card">
+        <h2>第二首</h2>
+        <h3>MONTAGEM XONADA</h3>
+        <iframe src="https://www.youtube.com/embed/JjPtDl6EJ3o" allowfullscreen></iframe>
+    </div>
+
+    <div class="song-card">
+        <h2>第三首</h2>
+        <h3>LOS VOLTAJE (Slowed)</h3>
+        <iframe src="https://www.youtube.com/embed/NvEKBcEa4uM" allowfullscreen></iframe>
+    </div>
+
+    <div class="song-card">
+        <h2>第四首</h2>
+        <h3>DIA DELÍCIA</h3>
+        <iframe src="https://www.youtube.com/embed/FS6Ari46kpw" allowfullscreen></iframe>
+    </div>
+
+    <div class="song-card">
+        <h2>第五首</h2>
+        <h3>LUNA BALA (Slowed)</h3>
+        <iframe src="https://www.youtube.com/embed/7MSQDYX4mr8" allowfullscreen></iframe>
+    </div>
+</div>
+
 <div id="top">
-<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3pvOG9iNzJ0YWk4aWZ2bWE0YnFidzg1NzU3YmJld3pzYWwyOTc0OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PVEi764FCrrxem3yEr/giphy.gif">
+    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3pvOG9iNzJ0YWk4aWZ2bWE0YnFidzg1NzU3YmJld3pzYWwyOTc0OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PVEi764FCrrxem3yEr/giphy.gif">
 </div>
+
+</body>
 </html>

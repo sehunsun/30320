@@ -3,20 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <title>🐍 強化版貪食蛇 Snake Game</title>
+
 <style>
   body {
     background-color: #000;
+    margin: 0;
+    padding-top: 70px; /* 給導覽列空間 */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
     color: #0f0;
     font-family: "Microsoft JhengHei", sans-serif;
+    min-height: 100vh;
+  }
+
+  /* ===== 導覽列 ===== */
+  .topnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #111;
+    padding: 12px 0;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,255,0,0.3);
+  }
+
+  .topnav a {
+    color: #0f0;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .topnav a:hover {
+    color: #0ff;
+  }
+
+  .topnav a.active {
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+    padding-bottom: 4px;
   }
 
   h1 {
     text-shadow: 0 0 10px #0f0;
+    margin-top: 10px;
   }
 
   #canvas {
@@ -48,7 +81,7 @@
 
   #score {
     position: absolute;
-    top: 10px;
+    top: 80px;   /* 在導覽列下面 */
     left: 10px;
     font-size: 18px;
     color: #0f0;
@@ -57,7 +90,7 @@
 
   #status {
     position: absolute;
-    top: 10px;
+    top: 80px;
     right: 10px;
     font-size: 16px;
     color: #0ff;
@@ -65,7 +98,19 @@
   }
 </style>
 </head>
+
 <body>
+
+<!-- ✅ 固定導覽列 -->
+<div class="topnav">
+    <a href="30320.html">Home</a>
+    <a href="draw.html">畫布</a>
+    <a href="guess.html">猜數字遊戲</a>
+    <a href="index.html">班級留言板</a>
+    <a class="active" href="snake.html">貪食蛇</a>
+    <a href="test.html">憲羅天征</a>
+</div>
+
 <h1>🐍 強化版貪食蛇 Snake Game</h1>
 
 <div id="startScreen">
@@ -85,5 +130,6 @@
 </div>
 
 <script src="snake.js"></script>
+
 </body>
 </html>
